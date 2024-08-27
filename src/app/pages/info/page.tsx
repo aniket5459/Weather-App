@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import WeatherCard from '@/app/components/WeatherCard';
 import Link from 'next/link';
 import { CircularProgress } from '@mui/material';
+import dynamic from 'next/dynamic';
 
 function InfoPage() {
     const searchParams = useSearchParams();
@@ -29,7 +30,7 @@ function InfoPage() {
             };
             fetchData();
         }
-    }, [localityId]);
+    }, [key, localityId]);
     console.log(weatherData);
 
     if (!weatherData) {
@@ -125,4 +126,6 @@ function InfoPage() {
     );
 }
 
-export default InfoPage;
+export default dynamic(() => Promise.resolve(InfoPage), {
+    ssr: false,
+});
