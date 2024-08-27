@@ -35,7 +35,7 @@ function InfoPage() {
 
     if (!weatherData) {
         return (
-            <div className="fixed inset-0 flex items-center justify-center h-dvh bg-cover" style={{
+            <div className="fixed inset-0 flex items-center justify-center min-h-screen bg-cover" style={{
                 backgroundImage: `url('/bg2.jpg')`,
             }}>
                 <CircularProgress color="inherit" />
